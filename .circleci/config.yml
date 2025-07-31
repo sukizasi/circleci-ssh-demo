@@ -1,0 +1,17 @@
+version: 2.1
+
+jobs:
+  ssh-access:
+    docker:
+      - image: cimg/base:stable
+    steps:
+      - checkout
+      - run:
+          name: Chờ bạn SSH vào container
+          command: sleep 600
+
+workflows:
+  version: 2
+  build-and-ssh:
+    jobs:
+      - ssh-access
